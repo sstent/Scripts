@@ -1,0 +1,179 @@
+#
+# An unexpected error has been detected by Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x6d939a08, pid=2944, tid=5100
+#
+# Java VM: Java HotSpot(TM) Client VM (1.6.0_03-b05 mixed mode)
+# Problematic frame:
+# V  [jvm.dll+0xc9a08]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x16e85800):  JavaThread "Java2D Disposer" daemon [_thread_in_vm, id=5100]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x00000000
+
+Registers:
+EAX=0x00000000, EBX=0x00000000, ECX=0x170efa84, EDX=0x170efae9
+ESP=0x170efa30, EBP=0x16e85b70, ESI=0x16e85800, EDI=0x16f2fb20
+EIP=0x6d939a08, EFLAGS=0x00010203
+
+Top of Stack: (sp=0x170efa30)
+0x170efa30:   16b5ca3c 170efbe8 16e858ec 16e85800
+0x170efa40:   00000000 00000003 03de4950 16b7fab8
+0x170efa50:   16b7fac0 16b7feac 16f2fb20 16b7fab8
+0x170efa60:   16b7fac0 16b7feac 16e85b8c 000000b9
+0x170efa70:   16e85b98 16e85ba8 16e85bac 16e85bb8
+0x170efa80:   fffffffc 16e85b70 16b6448c 00000000
+0x170efa90:   170efb84 0093cd38 170efc98 170efca0
+0x170efaa0:   00c0db48 170efce8 000fbf20 6d9f6f2c 
+
+Instructions: (pc=0x6d939a08)
+0x6d9399f8:   8c 24 c4 00 00 00 89 2c 81 ff 84 24 d0 00 00 00
+0x6d939a08:   8b 03 8b 50 08 0f b7 4a 26 8b 50 0c 8b 44 8a 1c 
+
+
+Stack: [0x170a0000,0x170f0000),  sp=0x170efa30,  free space=318k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0xc9a08]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.awt.Cursor.finalizeImpl(J)V+0
+j  java.awt.Cursor.access$000(J)V+1
+j  java.awt.Cursor$CursorDisposer.dispose()V+4
+J  sun.java2d.Disposer.run()V
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x16ba4400 JavaThread "Thread-1065736" [_thread_in_native, id=9964]
+  0x16ba2800 JavaThread "Thread-1065734" [_thread_in_native, id=9376]
+  0x17030800 JavaThread "Thread-1065731" [_thread_in_native, id=2584]
+  0x16fb6000 JavaThread "Thread-1065722" [_thread_in_native, id=9788]
+  0x16fb5000 JavaThread "Thread-1065721" [_thread_in_native, id=8408]
+  0x17b76800 JavaThread "Thread-1065714" [_thread_in_native, id=8224]
+  0x16ff0400 JavaThread "Thread-1065711" [_thread_in_native, id=7584]
+  0x17067800 JavaThread "Thread-1065684" [_thread_in_native, id=9784]
+  0x16f1fc00 JavaThread "Thread-1065679" [_thread_blocked, id=9576]
+  0x17b52400 JavaThread "Thread-1065659" [_thread_in_native, id=6556]
+  0x17c62000 JavaThread "Image Fetcher 0" daemon [_thread_blocked, id=7248]
+  0x17c2f800 JavaThread "Timer-7" [_thread_blocked, id=2060]
+  0x16bbcc00 JavaThread "TimerQueue" daemon [_thread_blocked, id=5780]
+  0x002a6400 JavaThread "DestroyJavaVM" [_thread_blocked, id=3320]
+  0x17c39400 JavaThread "Timer-0" [_thread_blocked, id=6088]
+  0x17c55400 JavaThread "Thread-4" [_thread_in_native, id=6084]
+  0x17c17000 JavaThread "Thread-3" [_thread_blocked, id=4932]
+  0x16be5400 JavaThread "AWT-EventQueue-0" [_thread_blocked, id=5264]
+  0x16f04c00 JavaThread "AWT-Shutdown" [_thread_blocked, id=4380]
+=>0x16e85800 JavaThread "Java2D Disposer" daemon [_thread_in_vm, id=5100]
+  0x16b7d400 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=5440]
+  0x16b78800 JavaThread "CompilerThread0" daemon [_thread_blocked, id=5612]
+  0x16b77400 JavaThread "Attach Listener" daemon [_thread_blocked, id=5608]
+  0x16b76800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=1872]
+  0x16b67000 JavaThread "Finalizer" daemon [_thread_blocked, id=5596]
+  0x16b62c00 JavaThread "Reference Handler" daemon [_thread_blocked, id=3316]
+
+Other Threads:
+  0x16b5f800 VMThread [id=5888]
+
+VM state:synchronizing (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x002a5038/0x00000714] Threads_lock - owner thread: 0x16b5f800
+
+Heap
+ def new generation   total 2112K, used 251K [0x02990000, 0x02bd0000, 0x03d40000)
+  eden space 1920K,   7% used [0x02990000, 0x029b3a88, 0x02b70000)
+  from space 192K,  56% used [0x02ba0000, 0x02bbb398, 0x02bd0000)
+  to   space 192K,   0% used [0x02b70000, 0x02b70000, 0x02ba0000)
+ tenured generation   total 24432K, used 19380K [0x03d40000, 0x0551c000, 0x12990000)
+   the space 24432K,  79% used [0x03d40000, 0x0502d150, 0x0502d200, 0x0551c000)
+ compacting perm gen  total 15616K, used 15513K [0x12990000, 0x138d0000, 0x16990000)
+   the space 15616K,  99% used [0x12990000, 0x138b6568, 0x138b6600, 0x138d0000)
+No shared spaces configured.
+
+Dynamic libraries:
+0x00400000 - 0x00423000 	C:\Program Files\SUPERMICRO\IPMIView\_jvm\bin\java.exe
+0x7c900000 - 0x7c9b2000 	C:\WINDOWS\system32\ntdll.dll
+0x7c800000 - 0x7c8f6000 	C:\WINDOWS\system32\kernel32.dll
+0x77dd0000 - 0x77e6b000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x77e70000 - 0x77f03000 	C:\WINDOWS\system32\RPCRT4.dll
+0x77fe0000 - 0x77ff1000 	C:\WINDOWS\system32\Secur32.dll
+0x7c340000 - 0x7c396000 	C:\Program Files\SUPERMICRO\IPMIView\_jvm\jre\bin\msvcr71.dll
+0x6d870000 - 0x6daba000 	C:\Program Files\SUPERMICRO\IPMIView\_jvm\jre\bin\client\jvm.dll
+0x7e410000 - 0x7e4a1000 	C:\WINDOWS\system32\USER32.dll
+0x77f10000 - 0x77f59000 	C:\WINDOWS\system32\GDI32.dll
+0x76b40000 - 0x76b6d000 	C:\WINDOWS\system32\WINMM.dll
+0x76390000 - 0x763ad000 	C:\WINDOWS\system32\IMM32.DLL
+0x6d3c0000 - 0x6d3c8000 	C:\Program Files\SUPERMICRO\IPMIView\_jvm\jre\bin\hpi.dll
+0x76bf0000 - 0x76bfb000 	C:\WINDOWS\system32\PSAPI.DLL
+0x6d820000 - 0x6d82c000 	C:\Program Files\SUPERMICRO\IPMIView\_jvm\jre\bin\verify.dll
+0x6d460000 - 0x6d47f000 	C:\Program Files\SUPERMICRO\IPMIView\_jvm\jre\bin\java.dll
+0x6d860000 - 0x6d86f000 	C:\Program Files\SUPERMICRO\IPMIView\_jvm\jre\bin\zip.dll
+0x6d0b0000 - 0x6d273000 	C:\Program Files\SUPERMICRO\IPMIView\_jvm\jre\bin\awt.dll
+0x73000000 - 0x73026000 	C:\WINDOWS\system32\WINSPOOL.DRV
+0x77c10000 - 0x77c68000 	C:\WINDOWS\system32\msvcrt.dll
+0x774e0000 - 0x7761d000 	C:\WINDOWS\system32\ole32.dll
+0x73760000 - 0x737ab000 	C:\WINDOWS\system32\ddraw.dll
+0x73bc0000 - 0x73bc6000 	C:\WINDOWS\system32\DCIMAN32.dll
+0x6d360000 - 0x6d3b3000 	C:\Program Files\SUPERMICRO\IPMIView\_jvm\jre\bin\fontmanager.dll
+0x6b680000 - 0x6b68d000 	C:\Program Files\WinSplit Revolution\WinSplitHook32.dll
+0x17190000 - 0x172ff000 	C:\WINDOWS\system32\nview.dll
+0x77f60000 - 0x77fd6000 	C:\WINDOWS\system32\SHLWAPI.dll
+0x7c9c0000 - 0x7d1d7000 	C:\WINDOWS\system32\SHELL32.dll
+0x77120000 - 0x771ab000 	C:\WINDOWS\system32\OLEAUT32.dll
+0x5d090000 - 0x5d12a000 	C:\WINDOWS\system32\COMCTL32.dll
+0x77c00000 - 0x77c08000 	C:\WINDOWS\system32\VERSION.dll
+0x773d0000 - 0x774d3000 	C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.5512_x-ww_35d4ce83\comctl32.dll
+0x77690000 - 0x776b1000 	C:\WINDOWS\system32\NTMARTA.DLL
+0x71bf0000 - 0x71c03000 	C:\WINDOWS\system32\SAMLIB.dll
+0x76f60000 - 0x76f8c000 	C:\WINDOWS\system32\WLDAP32.dll
+0x74720000 - 0x7476c000 	C:\WINDOWS\system32\MSCTF.dll
+0x755c0000 - 0x755ee000 	C:\WINDOWS\system32\msctfime.ime
+0x6d500000 - 0x6d524000 	C:\Program Files\SUPERMICRO\IPMIView\_jvm\jre\bin\jpeg.dll
+0x6d620000 - 0x6d633000 	C:\Program Files\SUPERMICRO\IPMIView\_jvm\jre\bin\net.dll
+0x71ab0000 - 0x71ac7000 	C:\WINDOWS\system32\WS2_32.dll
+0x71aa0000 - 0x71aa8000 	C:\WINDOWS\system32\WS2HELP.dll
+0x6d640000 - 0x6d649000 	C:\Program Files\SUPERMICRO\IPMIView\_jvm\jre\bin\nio.dll
+0x71a50000 - 0x71a8f000 	C:\WINDOWS\system32\mswsock.dll
+0x662b0000 - 0x66308000 	C:\WINDOWS\system32\hnetcfg.dll
+0x71a90000 - 0x71a98000 	C:\WINDOWS\System32\wshtcpip.dll
+0x76f20000 - 0x76f47000 	C:\WINDOWS\system32\DNSAPI.dll
+0x76fb0000 - 0x76fb8000 	C:\WINDOWS\System32\winrnr.dll
+0x76fc0000 - 0x76fc6000 	C:\WINDOWS\system32\rasadhlp.dll
+0x19890000 - 0x198a5000 	C:\WINDOWS\system32\nvwddi.dll
+0x77b40000 - 0x77b62000 	C:\WINDOWS\system32\Apphelp.dll
+0x68000000 - 0x68036000 	C:\WINDOWS\system32\rsaenh.dll
+0x769c0000 - 0x76a74000 	C:\WINDOWS\system32\USERENV.dll
+0x5b860000 - 0x5b8b5000 	C:\WINDOWS\system32\netapi32.dll
+
+VM Arguments:
+jvm_args: -Djava.library.path=. -Xmx256m
+java_command: IPMIView20.IPMIView20
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\SUPERMICRO\IPMIView\_jvm
+PATH=C:\Program Files\Support Tools\;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files\Windows Resource Kits\Tools\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\system32\WindowsPowerShell\v1.0;C:\Program Files\SysInternalsSuite;C:\usr\bin;C:\WINDOWS\system32\WindowsPowerShell\v1.0;c:\Program Files\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files\VMware\VMware OVF Tool\;C:\Program Files\WinMerge;C:\Program Files\Calibre2\;C:\Program Files\Nmap;c:\program files\putty
+USERNAME=sstent
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 15 Model 4 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows XP Build 2600 Service Pack 3
+
+CPU:total 2 (1 cores per cpu, 2 threads per core) family 15 model 4 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ht
+
+Memory: 4k page, physical 2096488k(698996k free), swap 4034904k(2332356k free)
+
+vm_info: Java HotSpot(TM) Client VM (1.6.0_03-b05) for windows-x86, built on Sep 24 2007 22:24:33 by "java_re" with unknown MS VC++:1310
+

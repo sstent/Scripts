@@ -1,0 +1,36 @@
+JVM_HOME: C:\Program Files\SUPERMICRO\IPMIView\_jvm
+DESC:  Java Development Kit (JDK) 1.6.0_03 by Sun Microsystems
+JVM_EXE:  bin\java.exe
+CLASSPATH:  "-cp "
+CLASSPATH_SEPARATOR:  ;
+SYSTEM:  -D
+SYSTEM_SEPARATOR:  =
+JVM_PROPERTIES:
+  java.vendor=Sun Microsystems...
+  java.version=1.6.0_03...
+/:
+PLATFORM_HINT:
+  \HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft\Java Runtime Environment\1.6.0_03\JavaHome
+  \HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft\Java Development Kit\1.6.0_03\JavaHome
+/:
+PATH_HINT:
+  \Program Files\Java\jre1.6.0_03
+  \Java\jre1.6.0_03
+/:
+VERBOSE:  -verbose
+VERBOSE_GC:  -verbose:gc
+VERBOSE_CLASS:  -verbose:class
+VERBOSE_JNI:  -verbose:jni
+VERSION:  -version
+BOOT_CLASSPATH:  -Xbootclasspath:
+NO_CLASS_GC:  -Xnoclassgc
+INIT_JAVA_HEAP:  -Xms
+MAX_JAVA_HEAP:  -Xmx
+REDUCE_OS_SIGNALS:  -Xrs
+CHECK_JNI:  -Xcheck:jni
+RUNHPROF_HELP:  -Xrunhprof:help
+RUNHPROF_OPTION:  -Xrunhprof
+DEBUG:  -Xdebug
+FUTURE:  -Xfuture
+JVM_FILE:  C:\DOCUME~1\sstent\LOCALS~1\Temp\LRE97.tmp\jvm
+JVM_TEMP:  1

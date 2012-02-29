@@ -1,0 +1,2 @@
+java.library.path=.
+
