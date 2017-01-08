@@ -1,0 +1,30 @@
+###Copy with timeout
+timeout 12h xargs -a sorted_dirs_no_maudio.txt -n1 -I% -P6 sh -c "rsync -PlptgoDv --log-file=/root/NASSYNC.log /NFS/Source/%/* /NFS/Target/%/"
+
+
+
+
+suffix="_11_14-16"
+
+
+##Parse the logfile for permissions errors and extract jsut the full path and filename
+##For single day
+grep -i denied NASSYNC.log  | grep "2015/11/11" | sed -n '/"/!{/\n/{P;b}};s/"/\n/g;D' > PermissionsErrors${suffix}.txt
+
+##For mutiple days
+grep -i denied NASSYNC.log  | grep -e "2015/11/11" -e "2015/11/12" | sed -n '/"/!{/\n/{P;b}};s/"/\n/g;D' > PermissionsErrors${suffix}.txt
+
+##Parse erro list, get uid of source file, strip prefix, replace UIDs with usernames
+cat PermissionsErrors${suffix}.txt | xargs -d '\n' -L1 stat -c "%u %n" | sed  's/\/NFS\/Source//' | sed 's/99/nobody/' | sed 's/507/ecom/' > Parsed_PermissionsErrors${suffix}.txt
+
+###Get the current permissions for each folder
+cat Parsed_PermissionsErrors${suffix}.txt |awk '{print $2}'  |xargs dirname | sort | uniq  | xargs -d '\n' -L1 -I{} stat -c "%a %n" /NFS/Target{} >> PermFiXFolders${suffix}.txt
+
+### set them to 0777
+cat PermFiXFolders${suffix}.txt | xargs -l1  bash -c 'echo chmod 0777 $1'
+
+##run the copy as the required user
+head Parsed_PermissionsErrors${suffix}.txt | xargs -l1  bash -c 'su $0 -c "rsync -PlptgoDv /NFS/Source$1 /NFS/Target$1"'
+
+###set the perms back!
+cat PermFiXFolders.txt | xargs -l1  bash -c 'echo chmod $0 $1'
